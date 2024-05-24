@@ -10,7 +10,6 @@ import org.mockito.junit.MockitoJUnitRunner;
 import praktikum.Bun;
 import praktikum.Burger;
 import praktikum.Ingredient;
-import praktikum.IngredientType;
 
 @RunWith(MockitoJUnitRunner.class)
 public class BurgerTest {
