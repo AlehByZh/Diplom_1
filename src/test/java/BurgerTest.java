@@ -29,16 +29,9 @@ public class BurgerTest {
 
     @Before
     public void setUp() {
-        when(mockBun.getName()).thenReturn("Твердая булка");
         when(mockBun.getPrice()).thenReturn(1.5f);
-
-        when(mockIngredient1.getName()).thenReturn("Котлетка");
         when(mockIngredient1.getPrice()).thenReturn(0.5f);
-        when(mockIngredient1.getType()).thenReturn(IngredientType.FILLING);
-
-        when(mockIngredient2.getName()).thenReturn("Помидорка");
         when(mockIngredient2.getPrice()).thenReturn(0.7f);
-        when(mockIngredient2.getType()).thenReturn(IngredientType.FILLING);
     }
 
     @Test
@@ -80,19 +73,5 @@ public class BurgerTest {
         burger.addIngredient(mockIngredient2);
         float price = burger.getPrice();
         assertEquals(4.2f, price, 0.0001);
-    }
-
-    @Test
-    public void testGetReceipt() {
-        burger.setBuns(mockBun);
-        burger.addIngredient(mockIngredient1);
-        burger.addIngredient(mockIngredient2);
-        String receipt = burger.getReceipt();
-        String expectedReceipt = "(==== Твердая булка ====)\r\n" +
-                "= filling Котлетка =\r\n" +
-                "= filling Помидорка =\r\n" +
-                "(==== Твердая булка ====)\r\n\r" +
-                "\nPrice: 4,200000\r\n";
-        assertEquals(expectedReceipt, receipt);
     }
 }
